@@ -97,7 +97,7 @@ private:
                                     //movie director
   string movieProductionCo;         //variable to store the name of the
                                     //movie production company
-  int   copiesInStock;              //variable to store the number of copies
+  int    copiesInStock;             //variable to store the number of copies
                                     //in stock
 };
 #endif
