@@ -8,3 +8,9 @@ struct nodeType
 };
 
 template<class Type>
+class linkedListType
+{
+  //Overload the stream insertion operator
+  friend ostream& operator << (ostream&, const linkedListType<Type>&);
+public:
+  
