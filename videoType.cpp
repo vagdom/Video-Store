@@ -44,7 +44,7 @@ void videoType::printTile() const
 
 void videoType::printInfo() const
 {
-    cout << "Video Title : << videoTitle << endl;
+    cout << "Video Title : " << videoTitle << endl;
     cout << "Stars : " << movieStar1 << " and " << movieStar2 << endl;
     cout << "Producer : " << movieProducer << endl;
     cout << "Director : " << movieDirector << endl;
@@ -86,5 +86,18 @@ bool videoType::operator == (const videoType& other) const
     return ( videoTitle == other.videoTitle);
 }
 
-
+bool videoType::operator != (const videoType& other) const
+{
+    return ( videoTitle != other.videoTitle);
+}
+                     
+ostream& operator << (ostream& os, const videoType& video)
+{
+    os << endl;
+    os << "Video Title : " << video.videoTitle << endl;
+    os << "Stars : " << video.movieStar1 << " and " << video.movieStar2 << endl;
+    os << "Producer : " << video.movieProducer << endl;
+    os << "Director : " << video.movieDirector << endl;
+    os << "Production : " << video.movieProductionCo << endl;
+    os << "Copies in stock : " << video.copiesInStock << endl;
     
