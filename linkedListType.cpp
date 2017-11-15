@@ -13,4 +13,5 @@ class linkedListType
   //Overload the stream insertion operator
   friend ostream& operator << (ostream&, const linkedListType<Type>&);
 public:
+  const linkedListType<Type>& operator = (const 
   
