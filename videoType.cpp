@@ -101,3 +101,4 @@ ostream& operator << (ostream& os, const videoType& video)
     os << "Production : " << video.movieProductionCo << endl;
     os << "Copies in stock : " << video.copiesInStock << endl;
     
+}
