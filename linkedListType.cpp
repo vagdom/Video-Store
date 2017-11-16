@@ -103,3 +103,30 @@ bool linkedListType<Type>::search(const Type& searchItem)
   
 }
   
+template<class Type>
+void linkedListType<Type>::insertFirst(const Type& newItem)
+{
+  nodeType<Type> *newNode;                 //pointer to create the new
+                                           //node
+  
+  newNode = new nodeType<Type>;            //create the new node
+  
+  assert(newNode != NULL);                 //if unable to allocate
+                                           //memory, terminate
+                                           //the program
+  
+  newNode->info = newItem;                 //store newItem in 
+                                           //the node
+  
+  newNode->link = first;                   //insert newNode before
+                                           //first
+  
+  first = newNode;                         //make first point to the
+                                           //actual first node
+  
+  count++;                                 //increment count
+  
+  if(last == NULL)                         //if the list was empty, newNode is
+     last = newNode;                       //also the last node in the list
+  
+}
