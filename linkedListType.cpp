@@ -130,3 +130,15 @@ void linkedListType<Type>::insertFirst(const Type& newItem)
      last = newNode;                       //also the last node in the list
   
 }
+
+template<class Type>
+void linkedListType<Type>::insertlast(const Type& newItem)
+{
+  nodeType<Type> *newNode;                 //pointer to create the new node
+  
+  newNode = new NodeType<Type>;            //create the new node
+  
+  assert(newNode != NULL);                 //if unable to allocate memory,
+                                           //terminate the program
+  
+  newNode->info = newItem;                 //store the new item 
