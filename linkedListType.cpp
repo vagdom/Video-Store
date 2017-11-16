@@ -37,3 +37,33 @@ void linkedListType<Type>::destroyList()
  count = 0;
 }
   
+template<class Type>
+void linkedListType<Type>::initializeList()
+{
+  destroyList();                          //if the list has any nodes,
+                                          //delete them
+}
+
+template<class Type>
+ostream& operator << (ostream& osObject, const linkedListType<Type>& list)
+{
+  nodeType<Type> * current;               //pointer to traverse the list
+  
+  current = list.first;                   //set current so that it points
+                                          //to the first node
+  
+  while( != NULL)                         //while more data to output
+  {
+      osObject << current->info << " ";
+    current = current->link;
+  }
+  
+  return osObject;
+  
+}
+
+template<class Type>
+int linkedListType<Type>::length()
+{
+  return count;
+}
