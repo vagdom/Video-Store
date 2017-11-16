@@ -141,4 +141,81 @@ void linkedListType<Type>::insertlast(const Type& newItem)
   assert(newNode != NULL);                 //if unable to allocate memory,
                                            //terminate the program
   
-  newNode->info = newItem;                 //store the new item 
+  newNode->info = newItem;                 //store the new item in the node
+  
+  newNode->link = NULL;                    //set the link field of newNode
+                                           //to NULL
+  
+  if(first == NULL)                        //if the list is empty, newNode is
+                                           //both the first and last node
+  {
+    first = newNode;
+    last = newNode;
+    count++;
+  }
+  else                                      //the list is not empty, insert newNode after last
+  {
+    last->link = newNode;                   //insert newNode after last
+    last = newNode;                         //make last point to the actual last node
+    count++;                                 //increment count by 1
+  }
+  
+}
+
+template<class Type>
+void linkedListType<Type>::deleteNode(const Type& deleteItem)
+{
+  nodeType<Type> *current;                   //pointer to traverse the list
+  nodeType<Type> *trailCurrent;              //pointer just before current
+  
+  if(first == NULL)                         //Case 1; list is empty
+    cout << "Cannot delete from an empty list.\n";
+  else
+  {
+    if(first->info == deleteItem)           //Case 2
+    {
+      current = first;
+      first = first->link;
+      count--;
+      if(first == NULL)                     //list has only one node
+        last = NULL;
+      delete current;
+    }
+    else                                    //search the list for the node with the given info
+    {
+      found = false;
+      trailCurrent = current;               //set trailCurrent to point to
+                                            //the first node
+      current = first->link;                //set current to point to the
+                                            //second node
+      
+      while(current != NULL && !found)      
+      {
+        if(current->info != deleteItem)
+        {
+          trailCurrent = current;
+          current = current->link;
+        }
+        else
+          found = true;
+      }
+      
+      if(found)                              //Case 3
+      {
+        trailCurrent->link = current->link;
+        count--;
+        
+        if(last ==current)                   //node to be deleted
+                                             //was the last node
+          last = trailCurrent;               //update the value of last
+        
+        delete current;                      //delete the node from the list
+      }
+      else
+        cout << 'Item to be deleted is not in the list." << endl;
+    }
+  }
+  
+}  
+
+  
