@@ -48,5 +48,15 @@ public:
   //Postcondition: copiesInStock = num
   void setcopiesInStock(string vTitle, int num)
   
-  //Function to print the titles of all movies.
+  //Function to print the titles of all movies in the store.
+  void videoPrintTitle();
+  
+private:
+  //Function to search the video list for a particular
+  //video, specified by the parameter vTitle.
+  //Postcondition: If the video is found, the parameter
+  //               found is set to true; otherwise,
+  //               it is set to false. The parameter current
+  //               points to the node containing the video.
+  void searchVideoList(string vtitle, bool& found, nodeType<videoType>* &current); 
 };
