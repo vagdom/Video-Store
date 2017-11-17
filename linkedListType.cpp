@@ -218,4 +218,74 @@ void linkedListType<Type>::deleteNode(const Type& deleteItem)
   
 }  
 
-  
+ template<class Type>
+ void linkedListType<Type>::copyList(const linkedListType<Type>& otherList)
+ {
+   nodeType<Type> *newNode;                   //pointer to create a node
+   nodeType<Type> *current;                   //pointer to traverse the list
+   
+   if(first != NULL)                          //the list is nonempty, make it empty
+     destroyList();
+   
+   if(otherList.first == NULL)                //otherList is empty
+   {
+     first = NULL;
+     last = NULL;
+     count = 0;
+   }
+   else
+   {
+     current = otherList.first;               //current points to the 
+                                              //list to be copied
+     count = otherList.count;
+     
+     first = nodeType<Type>;                  //create the node
+     
+     assert(first != NULL);
+     
+     first->info = current->info;             //copy the info
+     first->link = NULL;                      //set the link field of
+                                              //the node to NULL
+     last = first;                            //make last point to first node
+     
+     current = current->link;                 //make current point to
+                                              //the next node
+     
+     while(current != NULL)                   //copy the remaining list
+     {
+       newNode = new nodeType<Type>;          //create a node
+       
+       assert(newNode != NULL);
+       
+       newNode->info = current->info;         //copy the info
+       
+       newNode->link = NULL;                  //set the link of 
+                                              //new node to NULL
+       
+       last->link = newNode;                  //attach new node after last
+       
+       last = newNode;                        //make last point to
+                                              //the actual last node
+       
+       current = current->link;               //make current point to
+                                              //the next node
+     }
+   }
+   
+ }
+
+template<class Type>
+linkedListType<Type>::~linkedListType()        //destructor
+{
+  destroyList();
+}
+
+template<class Type>
+linkedListType<Type>::linkedListType(const linkedListType<Type>& otherList)
+{
+  first = NULL;
+  copyList(otherList);
+}
+
+template<class Type>
+const linkedListType<Type>& linked
