@@ -288,4 +288,10 @@ linkedListType<Type>::linkedListType(const linkedListType<Type>& otherList)
 }
 
 template<class Type>
-const linkedListType<Type>& linked
+const linkedListType<Type>& linkedListType<Type>::operator = (const linkedListType<Type>& otherList)
+{
+  if(this != &otherList) //avoid sel-copy
+    copyList(otherList);
+  
+  return *this;
+}
