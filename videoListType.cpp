@@ -19,3 +19,19 @@ void videoListType::searchVideoList(string vTitle, bool& found, nodeType<videoTy
         current = current->link;                //make current point
   }                                             //to the next node 
 }  
+
+bool videoListType::isVideoAvailable(string vTitle)
+{
+  bool found;
+  nodeType<videoType> *location;
+  
+  searchVideoList(vTitle, found, location);
+  
+  if(found)
+    found = (location->info.getNoOfCopiesInStock() > 0);
+  else
+    found = false;
+  
+  return found;
+}
+           
