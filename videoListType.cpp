@@ -49,3 +49,80 @@ void videoListType::videoCheckIn(string vTitle)
     cout << "The store does not carry this video." << endl; 
            
 }  
+
+void videoListType::videoCheckOut(string vTitle)
+{
+  bool found = false;
+  nodeType<videoType> *location;
+  
+  searchVideoList(vTitle, found, location);       //search the list
+  
+  if(found)
+    location->info.checkOut();
+  else
+    cout << "The store does not carry this video." << endl; 
+           
+}
+ 
+bool videoListType::videoCheckTitle(string vTitle)
+{
+  bool found = false;
+  nodeType<videoType> *location;
+  
+  searchVideoList(vTitle, found, location);       //search the list
+  
+  return found;
+           
+} 
+ 
+void videoListType::videoUpdateInStock(string vTitle, int num)
+{
+  bool found = false;
+  nodeType<videoType> *location;
+  
+  searchVideoList(vTitle, found, location);       //search the list
+  
+  if(found)
+    location->info.updateInStock(num);
+  else
+    cout << "The store does not carry this video." << endl; 
+           
+} 
+         
+void videoListType::videoSetcopiesInStock(string vTitle, int num)
+{
+  bool found = false;
+  nodeType<videoType> *location;
+  
+  searchVideoList(vTitle, found, location);       //search the list
+  
+  if(found)
+    location->info.setCopiesInStock(num);
+  else
+    cout << "The store does not carry this video." << endl; 
+           
+}  
+
+bool videoListType::videoSearch(string vTitle)
+{
+  bool found = false;
+  nodeType<videoType> *location;
+  
+  searchVideoList(vTitle, found, location);       //search the list
+  
+  return found;
+           
+}    
+
+void videoListType::videoPrintTitle()
+{
+  nodeType<videoType>* current;
+  
+  current = first;
+  
+  while(current != NULL)
+  {
+    current->infoPrintTitle();
+    current = current->link;
+  }
+}             
