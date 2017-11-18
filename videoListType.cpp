@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -35,3 +36,16 @@ bool videoListType::isVideoAvailable(string vTitle)
   return found;
 }
            
+void videoListType::videoCheckIn(string vTitle)
+{
+  bool found = false;
+  nodeType<videoType> *location;
+  
+  searchVideoList(vTitle, found, location);       //search the list
+  
+  if(found)
+    location->info.checkIn();
+  else
+    cout << "The store does not carry this video." << endl; 
+           
+}  
