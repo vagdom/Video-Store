@@ -96,7 +96,7 @@ public:
   ~LinkedListType();
   
 protected:
-  in count;                                 //variable to store the number of
+  int count;                                //variable to store the number of
                                             //elements in the list
   nodeType<Type> *first;                    //pointer to the first node of
                                             //the list
