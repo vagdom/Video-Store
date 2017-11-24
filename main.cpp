@@ -43,6 +43,14 @@ int main()
    switch(choice)
    {
      case 1:
+       cout << "Enter the title: ";
+       getline(cin, title);
+       cout << endl;
+       if(videoList.videoSearch(title))
+         cout << "Title found" << endl;
+       else
+         cout << "The store does not carry this title." << endl;
+       break;
      case 2:
      case 3:
      case 4:
