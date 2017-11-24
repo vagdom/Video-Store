@@ -52,12 +52,56 @@ int main()
          cout << "The store does not carry this title." << endl;
        break;
      case 2:
+       cout << "Enter the title: ";
+       getline(cin, title);
+       cout << endl;
+       if(videoList.videoSearch(title))
+       {
+         if(videoList.isVideoAvailable(title))
+         {
+           videoList.videoCheckOut.(title);
+           cout << "Enjoy your movie: " << title << endl;
+         }
+         else
+           cout << "The video is currently out of stock." << endl;
+       }
+       else
+         cout << "The video is not in the store." << endl;
+       break;         
      case 3:
+       cout << "Enter the title: ";
+       getline(cin, title);
+       cout << endl;
+       if(videoList.videoSearch(title))
+       {
+         videoList.videoCheckIn(title);
+         cout << "Thanks for returning " << title << endl;
+       }
+       else
+         cout << "This video is not from our store." << endl;
+       break;
      case 4:
+       cout << "Enter the title: ";
+       getline(cin, title);
+       cout << endl;
+       if(videoList.videoSearch(title))
+       {
+         if(videoList.isAvailable(title))
+           cout << "The video is currently in stock." << endl;
+         else
+           cout << "The video is out of stock." << endl;
+       }
+       else
+         cout << "The video is not in the store." << endl;
+       break;
      case 5:
+       videoList.videoPrintTitle();
+       break;
      case 6:
-     default: 
-       
+       cout << videoList << endl;
+       break;
+     default:
+       cout << "Bad Selection" << endl;       
    }
     
   }
