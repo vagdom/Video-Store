@@ -1,3 +1,6 @@
+#ifndef H_LINKEDLISTTYPE
+#define H_LINKEDLISTTYPE
+
 //Definition of the node
 
 template<class Type>
@@ -107,3 +110,5 @@ private:
   void copyList(const linkedListType<Type>& otherList);
   
 };  
+
+#endif
