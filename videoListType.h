@@ -1,3 +1,6 @@
+#ifndef H_VIDEOLISTTYPE
+#define H_VIDEOLISTTYPE
+
 #include <iostream>
 #include <string>
 
@@ -60,3 +63,5 @@ private:
   //               points to the node containing the video.
   void searchVideoList(string vtitle, bool& found, nodeType<videoType>* &current); 
 };
+
+#endif
